@@ -1,0 +1,36 @@
+Sistema de Gerenciamento de Biblioteca:
+
+Crie um sistema em Java para gerenciar livros de uma biblioteca.
+
+**Regras:**
+
+1. Cada **Livro** deve ter:
+- título (String)
+- autor (String)
+- ISBN (String) → deve ser **único** (usar Set para validar duplicidade)
+- disponibilidade (boolean)
+
+2. Crie uma **interface** chamada Emprestavel com métodos:
+
+- emprestar()
+- devolver()
+
+3. A classe Livro deve **implementar** a interface Emprestavel.
+
+4. Armazene todos os livros cadastrados em um **Map** onde:
+
+- a chave é o **ISBN**
+- o valor é o **objeto Livro**
+
+5.Crie **tratamento de exceções**:
+
+- Se tentar cadastrar um livro com ISBN repetido, lançar exceção personalizada LivroDuplicadoException.
+- Se tentar emprestar um livro que já está emprestado, lançar exceção.
+
+6.O programa deve ter um **menu** com opções:
+
+- Cadastrar Livro
+- Emprestar Livro (pelo ISBN)
+- Devolver Livro (pelo ISBN)
+- Listar todos os livros
+- Sair

@@ -1,0 +1,127 @@
+Miniprojeto Avaliativo: Sistema de Gestão de Transporte Público:
+### **Objetivo geral:**
+
+Criar um sistema de gestão de veículos de transporte público que permita **cadastrar, exibir, operar e analisar diferentes tipos de veículos**, aplicando os conceitos de **POO com foco em herança e polimorfismo**.
+
+### **Estrutura das Classes**
+
+### **Classe abstrata Veiculo**
+- Atributos comuns:
+- id (int)
+- marca (String)
+- ano (int)
+- Método abstrato:
+- public abstract void exibirDados();
+
+### **Subclasse Onibus**
+- Atributos:
+- capacidadePassageiros (int)
+- tipo (ex: "articulado", "convencional", "micro-ônibus")
+- Métodos:
+- abrirPortas()
+- fecharPortas()
+- Sobrescreve exibirDados()
+
+### **Subclasse Metro**
+- Atributos:
+- numeroVagoes (int)
+- temArCondicionado (boolean)
+- Métodos:
+- embarcarPassageiros(int qtd)
+- desembarcarPassageiros(int qtd)
+- Sobrescreve exibirDados()
+
+### **Classe Garagem**
+- Atributo:
+- ArrayList<Veiculo> veiculos
+- Métodos:
+- adicionarVeiculo(Veiculo v)
+- listarTodos()
+- listarPorTipo() (filtra por instanceof)
+- contarVeiculos()
+
+### **Classe principal (SistemaTransporteApp)**
+
+Deve conter um **menu com as opções**:
+
+1. Cadastrar ônibus
+2. Cadastrar metrô
+3. Listar todos os veículos
+4. Listar veículos por tipo
+5. Executar ação específica (abrir portas, embarcar passageiros etc.)
+6. Mostrar total de veículos por tipo
+7. Sair
+
+### **OBS: O que é uma Classe Abstrata?**
+
+Uma **classe abstrata** é uma classe que **não pode ser instanciada diretamente**.
+
+Ela serve como um **modelo/base** para outras classes concretas que herdam dela.
+
+### **Quando usar uma classe abstrata?**
+
+- Quando você quer **definir um comportamento comum**, mas deixar partes **obrigatórias para as subclasses implementarem**.
+- Quando faz **sentido lógico** que a classe nunca seja usada diretamente.
+
+### **Características importantes:**
+| **Característica** | **Explicação** |
+| --- | --- |
+| abstract class | Define que a classe é abstrata |
+| Não pode ser instanciada | new Veiculo() → ❌ Erro |
+| Pode ter métodos **com corpo** | Ex: ligar() |
+| Pode ter métodos **abstratos (sem corpo)** | Ex: exibirDados() |
+| Subclasse **deve sobrescrever** os métodos abstratos | Obrigatório |
+
+### **Diferença entre métodos com corpo e métodos abstratos**
+| **Tipo de Método** | **Tem corpo (implementação)?** | **Pode ser chamado diretamente?** | **Deve ser sobrescrito na subclasse?** |
+| --- | --- | --- | --- |
+| **Método com corpo** (normal) | ✅ Sim | ✅ Sim | ❌ Não (opcional) |
+| **Método abstrato** | ❌ Não | ❌ Não | ✅ Sim (obrigatório) |
+
+Exemplo:
+
+Classe abstrata com os dois tipos de métodos:
+
+abstract class Animal {
+
+// Método com corpo (opcional sobrescrever)
+
+public void respirar() {
+
+System.out.println("Animal respirando...");
+
+}
+
+// Método abstrato (obrigatório sobrescrever)
+public abstract void emitirSom();
+
+}
+Subclasse concreta:
+
+class Cachorro extends Animal {
+
+@Override
+
+public void emitirSom() {
+
+System.out.println("O cachorro faz: au au");
+
+}
+
+}
+
+EXPLICAÇÃO:
+
+respirar() **já tem um corpo**, então o Cachorro **pode usar como está** ou sobrescrever se quiser.
+
+emitirSom() **é abstrato**, então o Cachorro **é obrigado a implementar**, senão dá erro.
+
+OBS1: E se a subclasse não sobrescrever o método abstrato?
+
+class Gato extends Animal {
+
+// não sobrescreve emitirSom()
+
+}
+
+Resultado: **Erro de compilação**
