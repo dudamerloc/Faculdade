@@ -1,0 +1,32 @@
+### Lista de Tarefas
+GET http://localhost:5231/api/tarefas
+
+### Cadastrar Tarefa
+POST http://localhost:5231/api/tarefas
+Content-Type: application/json
+
+{
+    "titulo" : "Fazer almoço",
+    "status" : {
+        "id" : 2
+    },
+    "dataVencimento" : "2025-06-05"
+}
+
+### Busca por Id
+GET http://localhost:5231/api/tarefas/1
+
+### Atualiza tarefa por Id
+PUT http://localhost:5231/api/tarefas/1
+Content-Type: application/json
+
+{
+    "titulo" : "Academia",
+    "status" : {
+        "id" : 2
+    },
+    "dataVencimento" : "2025-06-05"
+}
+
+### Deleta tarefa por Id
+DELETE  http://localhost:5231/api/tarefas/6
