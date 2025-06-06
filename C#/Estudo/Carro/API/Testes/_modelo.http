@@ -1,0 +1,5 @@
+###GET: Lista todos os modelos
+GET http://localhost:5137/api/modelos
+
+###GET: Buscar modelo por ID
+GET http://localhost:5137/api/modelos/2

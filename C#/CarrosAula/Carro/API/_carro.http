@@ -1,0 +1,33 @@
+###Lista de Carros
+GET  http://localhost:5254/api/carros
+
+
+###Buscar pelo Id
+GET  http://localhost:5254/api/carros/1
+
+
+###Atualiza os dados do carro
+POST http://localhost:5254/api/carros
+Content-Type: application/json
+
+{
+    "name": "Fusca",
+        "modelo": {
+        "id": 1
+    }
+}
+
+
+###Atualiza os dados do carro
+PUT http://localhost:5254/api/carros/1
+Content-Type: application/json
+
+{
+    "name": "Honda City",
+    "modelo": {
+        "id": 1
+    }
+}
+
+###Remove o carro pelo Id
+DELETE   http://localhost:5254/api/carros/3
